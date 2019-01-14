@@ -25,7 +25,7 @@ a {
 #content-container {
   width: inherit;
   position: absolute;
-  bottom: 70%;
+  bottom: 57.9%;
 }
 .name-traits {
   font-size: 1em;
@@ -35,24 +35,22 @@ h1 {
   background-color: rgba(255,255,255,.2);
   border: 3px solid #FFFFFF;
   color: #000000;
-  font-size: 3.5em;
-  font-weight:200;
+  font-size: 3.5vw;
+  font-weight:500;
   font-variant-caps: small-caps;
-  padding-right: 209px;
-  margin: auto;
   letter-spacing: 43px;
 }
 h2 {
   color: white;
   margin: 0;
-  padding-right: 20px;
+  padding-right: auto;
   font-weight: 400;
   letter-spacing: 10px;
 }
 p {
   color: white;
   margin: 0;
-  padding-right: 20px;
+  padding-right: auto;
   font-weight: 400;
 
 }
@@ -77,8 +75,8 @@ p {
 .assignment-links {
 
   position: absolute;
-  top: 105px;
-  left: 0;
+  top: 400px;
+  right: 0;
 }
 ul {
   list-style-type: none;
