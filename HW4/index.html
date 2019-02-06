@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HW3 JAVASCRIPT ADVENTURE">
+    <meta name="author" content="Charlene Mundel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Charlene's Homework 4</title>
+
+    <style>
+    .box {
+        float: center;
+        margin: 15px;
+        padding:10px;
+        max-width: 100%;
+        align-items: center;
+
+        height: 100%;
+        display: center;
+
+  }
+
+  </style>
+  </head>
+  <body>
+
+  <h1 style="color:salmon;"><center><font face= "Lucida Sans Unicode"><b>WELCOME</b></center></h1>
+
+  <div class="box">
+
+  <center><img src="scene/gametitle.gif"
+               width="580" height="750" alt="gametitle" /></center>
+
+
+      <center><p style="color:LightSlateGrey;">Dimitri Zimmerman who lost track of events before he arrived within the Black Lodge, an ominous place that's hidden between reality and purgatory.<br>
+     Dimitri must regain his senses in order to find the murder and kidnapper that took off into the mysterious plain of existence.</p></center>
+
+  </div>
+
+  <div class="box">
+
+  <center><img id= "img", src="scene/storyboard-01.gif"
+           width="950" height="550" alt="storyboard" /></center>
+       <center><p style="color:White;", id="quote">"A man found himself standing in a room that's ominously dimly lighten. <br> The room appears to be surrounded in red curtains, the floor has a zig-zag tile pattern which is black and white. <br> The man can't remember how he got there."</p></center>
+
+  <center>   <p id= "text", style="color:LightSlateGrey;font-weight: 900;">From where he stand, there is a door way. To the right, there is a mirror.</p> </center>
+
+  <center><button style= "background-color:DarkSlateGrey; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block;
+  font-size: 16px;", id= leftButton onclick="myChanger()"> Look into Mirror </button>
+    <br>
+  <button style= "background-color:DarkSlateGrey; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block;
+  font-size: 16px;", id= rightButton onclick="myChanger2()">Leave the Room</button></center>
+  </div>
+
+
+
+  <script>
+  //assigned here to be used by functions below.
+
+
+   //Changing Functions Below!
+
+  //changes text/img/quote when leftButton yes is pressed
+  function myChanger() {
+      document.getElementById("text").innerHTML = "<b>The man looks at himself and sees that he appear to be a blue-haired man. <br> For some reason the man feels unsettled with the reflection that's being projected.</b>";
+      document.getElementById("img").src = "scene/storyboard-10.gif";
+      document.getElementById("quote").innerHTML= "";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Check Pockets";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "javascript: myChanger3();" );
+
+
+
+  }
+   //changes text/img/quote when rightButton no is pressed
+      //This function only is used when "no" is pressed at the beginning. Default Game-Over elsewhere.
+   function myChanger2() {
+      document.getElementById("text").innerHTML = "The man asked himself, because he isn't entirely sure how he got to his current location... <br> He hardly knows himself.";
+      document.getElementById("img").src = "scene/storyboard-09.gif";
+      document.getElementById("quote").innerHTML= "<i><b>Why would I want to do that?</b></i>";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Check Mirror";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      //changes the function the buttons use
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "javascript: myChanger();" );
+
+
+  }
+  //Changes the text/img when leftButton is pressed. [Enter Name]
+  function myChanger3() {
+      document.getElementById("text").innerHTML = "In his pockets there's a wallet, small notebook and a watch with the name <i> Dimitri Zimmerman </i> written on them. <br>"+" The watch isn't working, so he puts the watch away.";
+      document.getElementById("img").src = "scene/storyboard-02.gif";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Check Wallet";
+      document.getElementById("rightButton").innerHTML="Check Notebook";
+      //changes the function the buttons use.
+      document.getElementById("leftButton").setAttribute( "onClick", "myChanger4()" );
+      document.getElementById("rightButton").setAttribute( "onClick", "myChanger5()" );
+      document.getElementById("rightButton").style.visibility="visible";
+
+
+  }
+  //Changes the text/img when leftButton is pressed. [Move Onward]
+  function myChanger4() {
+      document.getElementById("text").innerHTML = "<b> Dimitri opened the wallet and quickly figured out as to why he felt this disembodied feeling when faced with the refection. <br> Dimitri's appearance changed entirely. <br> The ID photo presents a more mundane appearance than the demonic appearance that now presents him. <br> Dimitri also finds out he's a Detective by examining his ID.</b>";
+      document.getElementById("img").src = "scene/storyboard-06.gif";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Check Notebook";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      //changes the function the buttons use- no function now.
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger5()" );
+  }
+  //Changes the text/img when leftButton is pressed.
+  function myChanger5() {
+      document.getElementById("text").innerHTML = "<b> While putting the wallet back in his pocket, Dimitri began flipping through the pages.</b> <br>"+
+      "There appears to be some sort of writing with in the pages that he can't comprehend. ";
+      document.getElementById("img").src = "scene/storyboard-03.gif";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Keep Looking";
+      document.getElementById("rightButton").innerHTML="Look at Page";
+      //changes the function the buttons use- no function now.
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger6()");
+      document.getElementById( "rightButton" ).setAttribute( "onClick", "myChanger9()");
+      document.getElementById("rightButton").style.visibility="visible";
+  }
+  //Changes the text/img when rightButton is pressed. [Castle?]
+  function myChanger6() {
+      document.getElementById("text").innerHTML = "Dim raffled through the pages to find anything legable." +
+      "Still nothing on the first few pages.";
+      document.getElementById("img").src = "scene/storyboard-04.gif";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Just Flip To The Last Page";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      //changes the function the buttons use- no function now.
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger8()" );
+
+  }
+  //Changes the text/img when leftButton is pressed. [Dragon Nip]
+  function myChanger8() {
+      document.getElementById("text").innerHTML = "Dimitri continue to flip through the illegable pages. <br> On the last page he is able read to read what's written.";
+      document.getElementById("img").src = "scene/storyboard-05.gif";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Read.";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      //changes the function the buttons use- no function now.
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger11()" );
+
+  }
+
+  function myChanger9() {
+      document.getElementById("text").innerHTML = "It's absolutely unreadable at this point. <br> There's just random scribbles crudely written in red ink.";
+      document.getElementById("img").src = "scene/storyboard-07.gif";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Flip Through";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      //changes the function the buttons use- no function now.
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger10()" );
+
+  }
+  //Changes the text/img when leftButton is pressed. [Further In?]- cave- no items
+  function myChanger10() {
+      document.getElementById("text").innerHTML = "Dim raffled through the pages to find anything legable.";
+      document.getElementById("img").src = "scene/storyboard-04.gif";
+      //changes text of buttons
+      document.getElementById("leftButton").innerHTML="Keep flipping.";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+        document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger8()" );
+
+  }
+  //Changes the text/img when leftButton is pressed. [Further In?]- castle- no items
+  function myChanger11() {
+      document.getElementById("text").innerHTML = "<i> I have gone beyond than any mortal should, I might lose my mind or something once making contact with the Black Lodge... Remember I am looking for ----- R---. I must not forget why I am here, so I have this notebook to remember if I were to become lost. I must apprehend that murder.</i> <br> Where the name should be displayed, it's the same incohearent scribbles on the pages before.";
+      document.getElementById("img").src = "scene/storyboard-08.gif";
+      document.getElementById("quote").innerHTML="Crudely written in red-ink, it read:<br>";
+      document.getElementById("leftButton").innerHTML="Leave The Room";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      //changes the function the buttons use- no function now.
+      document.getElementById( "leftButton" ).setAttribute( "onClick", "myEnding1()" );
+
+
+  }
+  //ENDINGS//
+  function myEnding1() {
+      document.getElementById("text").innerHTML = "To be continued, I was working out the bugs and it worked out! <b> More soon.";
+      document.getElementById("img").src = "scene/tobe.gif";
+      document.getElementById("quote").innerHTML= "Dim left the room.";
+      document.getElementById("rightButton").style.visibility="hidden","collaspe";
+      document.getElementById("leftButton").innerHTML="To be Continued...";
+
+  }
+  </script>
+
+  </body>
+  </html>

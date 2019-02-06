@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8">
     <meta name="description" content="HW3 JAVASCRIPT ADVENTURE">
     <meta name="author" content="Charlene Mundel">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <title>Charlene's Homework 3</title>
 
@@ -13,147 +14,155 @@
 
   </head>
 
-  <body style="font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight:200;"><font color="white"> <center>
-<h1> Lodge Noir </h1>
-  <div style="font-family: 'Open Sans', sans-serif; font-size: 20px; font-weight:700;">
-    A man found himself standing in a room that ominously dimly lightens.
-    The room appears to be surrounded in red curtains, the floor has a zig-zag tile pattern which is black and white. The man can't remember how he got there.
-  </div>
-<img id="storyBoard" src="scene/storyboard-01.png" alt="storyboard";>
-  <div id="question"></div>
+  <body style="font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight:200;">
+    <font color="">
+      <center>
+        <h1> Lodge Noir </h1>
+        <div style="font-family: 'Open Sans', sans-serif; font-size: 20px; font-weight:700;">
+          A man found himself standing in a room that's ominously dimly lighten. The room appears to be surrounded in red curtains, the floor has a zig-zag tile pattern which is black and white. The man can't remember how he got there.
+        </div>
+        <div><img src='' id="img" /></div>
+        <div id="question"></div>
+        <div id="answers"></div>
 
-  <div id="answers"></div>
-
-
-  <div>What should he do?</div>
+        <div>What should he do?</div>
 
   <script>
-  function change(){
-    var image = document.getElementById('storyboard');
 
-
-  }
-
-
-
-  var db = [
+  function pictureChange() {
+    document.getElementById("theImage").src = "scene/storyboard-01.gif";
+}
+var db = [
 
 
 
     {
 
-      "question":" <br><b>  From where he stands, there is a door way. To the left, there is a mirror.</b>",
-      "answers": [{
-          "title": "Go through the doorway.",
-          "response": 1
+        "question": "<br><b> From where he stands, there is a door way. To the left, there is a mirror.</b>",
+        "img": "scene/storyboard-01.gif",
+        "answers": [{
+            "title": "Go through the doorway.",
+            "response": 1
         },
         {
-          "title": "Look into the mirror.",
-          "response": 2
+            "title": "Look into the mirror.",
+            "response": 2
         },
-      ]
+        ]
 
     }, {
 
-      "question": "<b> As he was approaching the doorway, he asked himself: <i> Why Would I want to do that?</i></b>",
+        "question": "<b> As he was approaching the doorway, he asked himself: <i> Why Would I want to do that?</i></b>",
+        "img": "scene/storyboard-09.gif",
+        "answers": [
 
-      "answers":  [
+            {
+                "title": "Go back.",
+                "response": 0
+            },
 
+        ]
+    },
+
+    {
+        "question": "<b>The man looks at himself and sees that he appear to be a blue-haired man. For some reason the man feels unsettled with the reflection that's being projected.</b>",
+        "img": "scene/storyboard-10.gif",
+        "answers": [{
+            "title": "Check pockets",
+            "response": 3
+        }]
+    },
+    {
+        "question": "<b>In his pockets there's a wallet, small note-book and a watch. The Watch isn't working, so he puts the watch away. Both of the objects has the name <i> Dimitri Zimmerman </i> written on them. The man now remembers his name.</b>",
+        "img": "scene/storyboard-02.gif",
+        "answers": [{
+            "title": "Check wallet.",
+            "response": 4
+        },
         {
-          "title": "Go back.",
-          "response": 0
+            "title": "Check the note-book.",
+            "response": 6
         },
-
-      ]
+        ]
     },
 
     {
-      "question": "<b>The man looks at himself and sees that he appear to be a blue-haired man. For some reason, the man feels unsettled with the reflection that's being projected.</b>",
-      "answers": [{
-        "title": "Check pockets",
-        "response": 3
-      }]
-    },
-    {
-      "question": "<b>In his pockets there's a wallet, small notebook and a watch. The Watch isn't working, so he puts the watch away. Both of the objects has the name <i> Dimitri Zimmerman </i> written on them. The man now remembers his name.</b>",
-      "answers": [{
-          "title": "Check wallet.",
-          "response": 4
-        },
-        {
-          "title": "Check the note-book.",
-          "response": 6
-        },
-      ]
+        "question": "<b> Dimitri opened the wallet and quickly figured out as to why he felt this disembodied feeling when faced with the refection. Dimitri's appearance changed entirely. The ID photo presents a more mundane appearance than the demonic appearance that now presents him. Dimitri also finds out he's a Detective by examining his ID.</b>",
+        "img": "scene/storyboard-06.gif",
+        "answers": [{
+            "title": "Check the note-book.",
+            "response": 5
+        },]
     },
 
     {
-      "question": "<b> Dimitri opened the wallet and quickly figured out as to why he felt this disembodied feeling when faced with the refection. Dimitri's appearance changed entirely. The ID photo presents a more mundane appearance than the demonic appearance that now presents him. Dimitri also finds out he's a Detective by examining his ID.</b>",
-      "answers": [{
-        "title": "Check the note-book.",
-        "response": 5
-      }, ]
+        "question": "<b> While putting the wallet back in his pocket, Dimitri began flipping through the pages.</b>",
+        "img": "scene/storyboard-03.gif",
+        "answers": [
+
+            {
+                "title": "...How odd",
+                "response": 6
+            },
+        ]
     },
 
     {
-      "question": "<b> While putting the wallet back in his pocket, Dimitri began flipping through the pages.</b>",
-      "answers": [
-
-        {
-          "title": "...How odd",
-          "response": 6
-        },
-      ]
-    },
-
-    {
-      "question": "<b>There appears to be some sort of writing within the pages that Dimitri can't comprehend. Briskly he raffled through the pages to find anything legible.</b>",
-      "answers": [{
-        "title": "Keep Looking",
-        "response": 7
-      }, ]
+        "question": "<b>There appears to be some sort of writing with in the pages that Dimitri can't comprehend. Briskly he raffled through the pages to find anything legable.</b>",
+        "img": "scene/storyboard-07.gif",
+        "answers": [{
+            "title": "Keep Looking.",
+            "response": 7
+        },]
     },
     {
-      "question": "<b> Dimitri continue to flip through the illegable pages. On the last page you are able read what's written.</b>",
-
-      "answers": [
-
-        {
-          "title": "Read.",
-          "response": 8
-        },
-
-
-      ]
-
+        "question": "<b> Dimitri continue to flip through the illegable pages.</b>",
+        "img": "scene/storyboard-04.gif",
+        "answers": [
+            {
+                "title": "Just flip to the last page.",
+                "response": 8
+            },
+        ]
     },
 
+{
+  "question":"On the last page you are able read what's written.",
+  "img":"scene/storyboard-05.gif",
+  "answers":[
     {
-      "question": "<b> Crudely written in red-ink, it read:<br> <i> I have gone beyond than any mortal should, I might lose my mind or something once making contact with the Black Lodge... Remember I am looking for ----- R---. I must not forget why I am here, so I have this notebook to remember if I were to become lost. I must apprehend that murder.</i> Where the name should be displayed, it's the same incoherent scribbles on the pages before.</b>",
+    "title":"Read.",
+    "response": 9
+  },
+]
+},
 
-      "answers": [
+    {
+        "question": "<b> Crudely written in red-ink, it read:<br> <i> I have gone beyond than any mortal should, I might lose my mind or something once making contact with the Black Lodge... Remember I am looking for ----- R---. I must not forget why I am here, so I have this note-book to remember if I were to become lost. I must apprehend that murder.</i> Where the name should be displayed, it's the same incohearent scribbles on the pages before.</b>",
+        "img":"scene/storyboard-08.gif",
+        "answers": [
 
-        {
-          "title": "Put the note-book away.",
-          "response": 9
-        },
+            {
+                "title": "Put the note-book away.",
+                "response": 10
+            },
 
-      ]
+        ]
 
 
     },
 
     {
+        "question": " <b> After putting the note book away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here. All that Dimitri knows that he's a Detective who's after a murder.</b>",
+        "img": "https://www.thisiscolossal.com/wp-content/uploads/2018/12/agifcolossal3opt1.gif",
+        "answers": [
 
-      "question": " <b> After putting the notebook away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here. All that Dimitri knows that he's a Detective who's after a murder.</b>",
-      "answers": [
+            {
+                "title": "Leave the room.",
+                "response": 11
+            },
 
-        {
-          "title": "Leave the room.",
-          "response": 10
-        },
-
-      ]
+        ]
 
 
 
@@ -161,34 +170,39 @@
 
 
     {
-      "question": "<b>To be Continued...</b>",
+        "question": "<b>To be Continued...</b>",
 
-
+        "img": "scene/tobe.gif",
     },
 
-  ];
+
+];
 
 
-  var currentLocation = 0;
+var currentLocation = 0;
 
-  window.printCurrentLocation = function() {
+window.printCurrentLocation = function () {
 
     document.getElementById("question").innerHTML = db[currentLocation].question;
+    if (db[currentLocation].img) {
+        document.getElementById("img").src = db[currentLocation].img
+    } else {
+        document.getElementById("img").src = ''
+    }
     var answers = "";
     for (var i = 0, l = db[currentLocation].answers.length; i < l; i++) {
-      answers += "<p><button onclick='setLocation(" + db[currentLocation].answers[i].response + ")'\>" + db[currentLocation].answers[i].title + "</button></p>";
-
+        answers += "<p><button onclick='setLocation(" + db[currentLocation].answers[i].response + ")'>" + db[currentLocation].answers[i].title + "</button></p>";
     }
-
     document.getElementById("answers").innerHTML = answers;
-  }
+}
 
-  window.setLocation = function(num) {
+window.setLocation = function (num) {
     currentLocation = num;
     window.printCurrentLocation();
-  }
+}
 
-  window.printCurrentLocation();
+window.printCurrentLocation();
+
 </script>
 </font>
 

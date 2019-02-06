@@ -13,5 +13,7 @@ Thank you!
 
 (1/30/2019)
 
+<h1> UPDATE </h1> <br> <h2>I have fixed it! Now you can use images!</h2>
+
 Live https://yewtreedesign.github.io/441_HW/HW3
 Repo https://github.com/YewTreeDesign/441_HW/tree/master/HW3
