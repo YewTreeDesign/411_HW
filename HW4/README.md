@@ -9,7 +9,7 @@ So far, what I have done gets the job done but I admit it's more cumbersome.
 Live https://yewtreedesign.github.io/441_HW/HW4
 Repo https://github.com/YewTreeDesign/441_HW/tree/master/HW4
 
-HW3
+HW3 (Funny Thing, I have found a way.)
 
 Live https://yewtreedesign.github.io/441_HW/HW3
 Repo https://github.com/YewTreeDesign/441_HW/tree/master/HW4
