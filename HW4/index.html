@@ -58,9 +58,7 @@
 
 
   <script>
-  //assigned here to be used by functions below.
-
-
+  
    //Changing Functions Below!
 
   //changes text/img/quote when leftButton yes is pressed
@@ -77,7 +75,7 @@
 
   }
    //changes text/img/quote when rightButton no is pressed
-      //This function only is used when "no" is pressed at the beginning. Default Game-Over elsewhere.
+
    function myChanger2() {
       document.getElementById("text").innerHTML = "The man asked himself, because he isn't entirely sure how he got to his current location... <br> He hardly knows himself.";
       document.getElementById("img").src = "scene/storyboard-09.gif";
@@ -104,7 +102,7 @@
 
 
   }
-  //Changes the text/img when leftButton is pressed. [Move Onward]
+  //Changes the text/img when leftButton is pressed.
   function myChanger4() {
       document.getElementById("text").innerHTML = "<b> Dimitri opened the wallet and quickly figured out as to why he felt this disembodied feeling when faced with the refection. <br> Dimitri's appearance changed entirely. <br> The ID photo presents a more mundane appearance than the demonic appearance that now presents him. <br> Dimitri also finds out he's a Detective by examining his ID.</b>";
       document.getElementById("img").src = "scene/storyboard-06.gif";
@@ -127,7 +125,7 @@
       document.getElementById( "rightButton" ).setAttribute( "onClick", "myChanger9()");
       document.getElementById("rightButton").style.visibility="visible";
   }
-  //Changes the text/img when rightButton is pressed. [Castle?]
+  //Changes the text/img when rightButton is pressed.
   function myChanger6() {
       document.getElementById("text").innerHTML = "Dim raffled through the pages to find anything legable." +
       "Still nothing on the first few pages.";
@@ -139,7 +137,7 @@
       document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger8()" );
 
   }
-  //Changes the text/img when leftButton is pressed. [Dragon Nip]
+  //Changes the text/img when leftButton is pressed.
   function myChanger8() {
       document.getElementById("text").innerHTML = "Dimitri continue to flip through the illegable pages. <br> On the last page he is able read to read what's written.";
       document.getElementById("img").src = "scene/storyboard-05.gif";
@@ -161,7 +159,7 @@
       document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger10()" );
 
   }
-  //Changes the text/img when leftButton is pressed. [Further In?]- cave- no items
+  //Changes the text/img when leftButton is pressed.
   function myChanger10() {
       document.getElementById("text").innerHTML = "Dim raffled through the pages to find anything legable.";
       document.getElementById("img").src = "scene/storyboard-04.gif";
@@ -171,7 +169,7 @@
         document.getElementById( "leftButton" ).setAttribute( "onClick", "myChanger8()" );
 
   }
-  //Changes the text/img when leftButton is pressed. [Further In?]- castle- no items
+  //Changes the text/img when leftButton is pressed.
   function myChanger11() {
       document.getElementById("text").innerHTML = "<i> I have gone beyond than any mortal should, I might lose my mind or something once making contact with the Black Lodge... Remember I am looking for ----- R---. I must not forget why I am here, so I have this notebook to remember if I were to become lost. I must apprehend that murder.</i> <br> Where the name should be displayed, it's the same incohearent scribbles on the pages before.";
       document.getElementById("img").src = "scene/storyboard-08.gif";
