@@ -4,9 +4,6 @@ var cardsArray = [{
   'name': 'boston',
   'img': 'img/boston.gif'
 }, {
-  'name': 'colly',
-  'img': 'img/colly.gif'
-}, {
   'name': 'pompom',
   'img': 'img/pom.gif'
 }, {
