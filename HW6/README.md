@@ -4,7 +4,7 @@
 <br>
 <h3> Memory Game </h3>
 
-I have made a memory game.
+Like the memory game from last time... but now with scoring!! HUZZAH!
 
 Live https://yewtreedesign.github.io/441_HW/HW6
 Repo https://github.com/YewTreeDesign/441_HW/tree/master/HW6

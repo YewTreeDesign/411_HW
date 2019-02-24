@@ -1,6 +1,5 @@
 'use strict';
 console.log("Charlene, 23");
-
 var cardsArray = [{
   'name': 'boston',
   'img': 'img/boston.gif'
@@ -40,7 +39,7 @@ var gameGrid = cardsArray.concat(cardsArray).sort(function () {
 var firstGuess = '';
 var secondGuess = '';
 var count = 0;
-let score = 0;
+var score = 1;
 var previousTarget = null;
 var delay = 1200;
 
@@ -71,15 +70,11 @@ gameGrid.forEach(function (item) {
 });
 
 var match = function match() {
-  var score = 0;
-   score = score + 1;
-   
+  nav.innerHTML = 'SCORE : ' + score++;
   var selected = document.querySelectorAll('.selected');
   selected.forEach(function (card) {
     card.classList.add('match');
-
   });
-
 };
 
 var resetGuesses = function resetGuesses() {
@@ -122,5 +117,6 @@ grid.addEventListener('click', function (event) {
     }
     previousTarget = clicked;
   }
+
 
 });
