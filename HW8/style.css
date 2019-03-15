@@ -3,6 +3,8 @@ body{
   background-color: black;
   font-family: 'Source Sans Pro', sans-serif;
 }
+/*Source For Transitoning images: https://stackoverflow.com/questions/2983957/animate-background-image-change-with-jquery + https://jsfiddle.net/srd76/36/
+*Username: James*/
 #background {
   background:
      linear-gradient(
@@ -12,8 +14,10 @@ body{
      url("image/space-00.jpg");
    background-size: cover;
    height: 100vh;
-}
+   /*Source For Transitoning images: https://stackoverflow.com/questions/2983957/animate-background-image-change-with-jquery + https://jsfiddle.net/srd76/36/
+   *Username: James*/
 
+}
 .title {
   position: absolute;
   top: 50%;
