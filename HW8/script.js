@@ -33,6 +33,7 @@ $([images[0], images[1], images[2], images[3]])
 
 //Source For Transitoning images: https://stackoverflow.com/questions/2983957/animate-background-image-change-with-jquery + https://jsfiddle.net/srd76/36/
 //Username: James
+
 var currimg = 0;
 
 $(document)
