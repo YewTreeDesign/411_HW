@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>HW 10 Jquery</title>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+              <link rel="stylesheet" href="css/style.css" text="text/css">
+    </head>
+    <header>
+
+    </header>
+    <body>
+<center>
+        <canvas id="canvas" width="500" height="500"></canvas>
+</center>
+      <script>
+      var canvas = document.getElementById("canvas");
+      var c = canvas.getContext("2d");
+      var ball = 10;
+      var x = canvas.width/2;
+      var y = canvas.height-30;
+      var z = 2;
+      var w = -2;
+      var mouse = {
+        x:innerWidth/2,
+        y:innerHeight/2,
+      }
+
+      
+      addEventListener("resize",function(){
+        canvas.width=innerWidth;
+        canvas.height=innerHeight;
+        init();
+      })
+
+      function Circle() {
+          c.beginPath();
+          c.arc(x, y, ball, 0, Math.PI*2);
+          c.fillStyle = "cyan";
+          c.fill();
+          c.closePath();
+
+      }
+
+      function draw() {
+
+
+          c.clearRect(0, 0, canvas.width, canvas.height);
+          Circle();
+
+
+          if(x + z > canvas.width-ball || x + z < ball) {
+              z = -z;
+          }
+          if(y + w > canvas.height-ball || y + w < ball) {
+              w = -w;
+          }
+
+          x += z;
+          y += w;
+      }
+//framerate
+        setInterval(draw, 10);
+
+      </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Within the Void">
+    <meta name="author" content="Charlene Mundel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>Within the Void</title>
+
+
+
+  </head>
+
+  <body style="font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight:200;">
+    <font color="">
+      <center>
+        <h1> Within the Void </h1>
+        <div id="header"></div>
+        <div><img src='' id="img"/></div>
+        <div id="question"></div>
+        <div id="answers"></div>
+        <div>What should he do?</div>
+
+
+      </center>
+    </font>
+</body>
+<script>
+
+function pictureChange() {
+  document.getElementById("theImage").src = "scene/storyboard-01.gif";
+}
+var db = [
+
+
+
+  {
+
+      "header":"",
+      "question": "<br><b> From where he stands, there is a door way. To the left, there is a mirror.</b>",
+      "img": "scene/scene1.png",
+      "answers": [{
+          "title": "Go through the door.",
+          "response": 1
+      },
+      {
+          "title": "Look into the mirror.",
+          "response": 3
+      },
+      ]
+
+  }, {
+
+"header":"As the man was approaching the doorway,",
+      "question": "<b>Disorented, the man asked himself <i> Why Would I want to do that?</i></b>",
+      "img": "scene/scene2.gif",
+      "answers": [
+
+          {
+              "title": "Go back.",
+              "response": 2
+          },
+
+      ]
+    }, {
+
+"header":"The man couldn't bring himself to go through the door.",
+        "question": "<b>He can't remember why he is here or even his own identity.</b>",
+        "img": "scene/scene1.png",
+        "answers": [
+
+            {
+                "title": "Look into Mirror.",
+                "response": 3
+            },
+          ]
+  },
+
+  {
+
+    "header":"The man looks at himself and sees that he appears to be a blue-haired man.",
+      "question": "<b>For some reason the man feels unsettled with the reflection that's being projected.</b>",
+      "img": "scene/scene5.gif",
+      "answers": [{
+          "title": "Check pockets",
+          "response": 4
+      }]
+  },
+  {
+
+    "header":"In his pockets there's a wallet, small note-book and a watch. The Watch isn't working, so he puts the watch away.",
+      "question": "<b> Both of the objects has the name <i> Dimitri Zimmerman </i> written on them. The man now remembers his name.</b>",
+      "img": "scene/scene4.png",
+      "answers": [{
+          "title": "Check wallet.",
+          "response": 5
+      },
+      {
+          "title": "Check the note-book.",
+          "response": 8
+      },
+      ]
+  },
+
+  {
+
+    "header":"Dimitri opened the wallet and quickly figured out as to why he felt this disembodied feeling when faced with the refection.",
+      "question": "<b> His own appearance changed entirely.</b>",
+      "img": "scene/scene7.png",
+      "answers": [{
+          "title": "Examine ID Card.",
+          "response": 6
+      },]
+
+},
+
+{
+
+  "header":"The ID photo presents a more mundane appearance than the demonic appearance that now presents him.",
+    "question": "<b> Dimitri also finds out he's a Detective by examining his ID.</b>",
+    "img": "scene/scene16.png",
+    "answers": [{
+        "title": "Check the note-book.",
+        "response": 7
+    },]
+  },
+
+  {
+
+    "header":"",
+      "question": "<b> While putting the wallet back in his pocket, Dimitri began flipping through the pages.</b>",
+      "img": "scene/scene6.png",
+      "answers": [
+
+          {
+              "title": "...How odd",
+              "response": 8
+          },
+      ]
+  },
+
+  {
+
+    "header":"There appears to be some sort of writing with in the pages that Dimitri can't comprehend.",
+      "question": "<b>Briskly he raffled through the pages to find anything legable.</b>",
+      "img": "scene/scene.png",
+      "answers": [{
+          "title": "Keep Looking.",
+          "response": 9
+      },]
+  },
+  {
+      "header":"",
+      "question": "<b> Dimitri continue to flip through the illegable pages.</b>",
+      "img": "scene/scene8.png",
+      "answers": [
+          {
+              "title": "Just flip to the last page.",
+              "response": 10
+          },
+      ]
+  },
+
+{
+
+"header":"Oh!",
+"question":"On the last page you are able read what's written.",
+"img":"scene/scene10.png",
+"answers":[
+  {
+  "title":"Read.",
+  "response": 11
+},
+]
+},
+
+  {
+
+      "header":"Crudely written in red-ink, it read:<br> <i> I have gone beyond than any mortal should, I might lose my mind or something once making contact with the Black Lodge... Remember I am looking for ----- R---. I must not forget why I am here, so I have this note-book to remember if I were to become lost. I must apprehend that murder.</i>",
+      "question": "<b>Where the name should be displayed, it's the same incohearent scribbles on the pages before.</b>",
+      "img":"scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Put the note-book away.",
+              "response": 12
+          },
+
+      ]
+
+
+  },
+
+  {
+
+    "header":" After putting the note book away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here.",
+      "question": " <b>All that Dimitri knows that he's a Detective who's after a murder.</b>",
+      "img": "scene/scene17.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response": 13
+          },
+
+      ]
+
+
+
+  },
+
+  {
+
+    "header":"Dimitri left the room and enters a dark hallway, he can't see the end of it.",
+      "question": " <b>There is only one way to get to the bottom of this.</b>",
+      "img": "scene/scene18.png",
+      "answers": [
+
+          {
+              "title": "It's Going Forward.",
+              "response": 14
+          },
+
+      ]
+
+
+  },
+  {
+
+    "header":"As Dimitri progresses through the hallway, he still feels disorented...Still trying to figure out his current situation.",
+      "question": "He figures it might come back to him if he were to continue through this strange place.",
+      "img": "scene/scene19.png",
+      "answers": [
+
+          {
+              "title": "Forward.",
+              "response": 15
+          },
+
+      ]
+
+
+
+  },
+  {
+      "header":"After a while there seems to be no end in sight, the darkness prevents Dimitri to see what's ahead of him.",
+      "question": " <b><i>This has to lead somewhere.</i> Thought Dimitri.</b>",
+      "img": "scene/scene20.png",
+      "answers": [
+
+          {
+              "title": "Keep going...I guess.",
+              "response": 16
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"Something is hiding in the shadows ahead.",
+      "question": " <b>The figure appears to be humanoid.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Approach",
+              "response": 17
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":" As much as Dimitri tries to get near, the figure moves away.",
+      "question": " <b>Dimitri notices that the figure is a woman, and seem familuar.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+
+            "title": "Call after her.",
+            "response": 18
+        },
+
+      ]
+
+
+
+  },
+
+  {
+
+    "header":"<i>Hey, wait!</i>, Dimitri called out.",
+      "question": " The woman didn't react to his call, she vanished into an identical room.",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Look Around.",
+              "response": 19
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"The room is nearly identical to the previous room, the only difference is there's a trail of blood that leads to the door. There is also a note where the mirror once was, it seems to match the type of paper in his note book. ",
+      "question": " <b> Dimitri instantly felt a chill travel down his spine.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Open the Door...",
+              "response": 20
+          },
+          {
+          "title": "Take the note.",
+          "response": 21
+        },
+      ]
+
+
+
+  },
+  {
+
+    "header":"Dimitri approaches the door and opened it ajar. ",
+      "question": " <b>He sees the identical hallway but, it appears tainted with the trail of blood.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response":30
+          },
+          {
+          "title": "<i>Take the note.</i>",
+          "response": 21
+        },
+      ]
+
+
+
+  },
+  {
+
+    "header":"Dimitri Grabs the note and suddenly his vision went blank and began seeing familuar visions.",
+      "question": " <b>The note read:<i> I've been told by a man who claimed to left the Black Lodge, he warned me that once I enter, my existance would warp itself and my memory from before would be erased. he also advised me to take my notebook along. There is a chance that Mira is murdered now that Mi---- Re-- fulfilled his desire to get into the Black Lodge. I won't allow this guy to go free.</i></b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Mira...?",
+              "response": 22
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"<i> Mira, she's the girl that was kidnapped...She has some connection to this place, who took her?</i> Thought Dimitri",
+      "question": " <b>Dimitri also remembers the point where he arrived into the Black Lodge, anything before entering the portal remains to be foggy.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response": 23
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"",
+      "question": " <b> After putting the note book away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here. All that Dimitri knows that he's a Detective who's after a murder.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response": 27
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"",
+      "question": " <b> After putting the note book away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here. All that Dimitri knows that he's a Detective who's after a murder.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response": 28
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"",
+      "question": " <b> After putting the note book away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here. All that Dimitri knows that he's a Detective who's after a murder.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response": 29
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"",
+      "question": " <b> After putting the note book away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here. All that Dimitri knows that he's a Detective who's after a murder.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response": 30
+          },
+
+      ]
+
+
+
+  },
+  {
+
+    "header":"",
+      "question": " <b> After putting the note book away, Dimitri stepped away from the mirror and looked over to the doorway, still hazed with the details of why he is here. All that Dimitri knows that he's a Detective who's after a murder.</b>",
+      "img": "scene/scene.png",
+      "answers": [
+
+          {
+              "title": "Leave the room.",
+              "response": 31
+          },
+
+      ]
+
+
+
+  },
+  {
+
+      "question": "<b>END OF EPISODE</b>",
+
+      "img": "scene/scene.png",
+  },
+
+
+];
+
+
+var currentLocation = 0;
+
+window.printCurrentLocation = function () {
+
+  document.getElementById("header").innerHTML = db[currentLocation].header;
+  document.getElementById("question").innerHTML = db[currentLocation].question;
+  if (db[currentLocation].img) {
+      document.getElementById("img").src = db[currentLocation].img
+  } else {
+      document.getElementById("img").src = ''
+  }
+  var answers = "";
+  for (var i = 0, l = db[currentLocation].answers.length; i < l; i++) {
+      answers += "<p><button onclick='setLocation(" + db[currentLocation].answers[i].response + ")'>" + db[currentLocation].answers[i].title + "</button></p>";
+  }
+  document.getElementById("answers").innerHTML = answers;
+}
+
+window.setLocation = function (num) {
+  currentLocation = num;
+  window.printCurrentLocation();
+}
+
+window.printCurrentLocation();
+
+</script>
+</html>
