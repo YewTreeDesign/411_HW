@@ -5,63 +5,99 @@
               <link rel="stylesheet" href="css/style.css" text="text/css">
     </head>
     <header>
-
+<center><h1> Use Arrow Keys to Control Paddle</h1></center>
     </header>
     <body>
 <center>
-        <canvas id="canvas" width="500" height="500"></canvas>
+        <canvas id="myCanvas" width="480" height="320"></canvas>
 </center>
       <script>
-      var canvas = document.getElementById("canvas");
-      var c = canvas.getContext("2d");
-      var ball = 10;
-      var x = canvas.width/2;
-      var y = canvas.height-30;
-      var z = 2;
-      var w = -2;
-      var mouse = {
-        x:innerWidth/2,
-        y:innerHeight/2,
+        console.log("Credit");
+        console.log("Paddle + Controls");
+        console.log("https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls");
+        console.log("___________________________________________________________________");
+        console.log("Change Color of Ball on Colision, or Really for me The Background");
+        console.log("https://stackoverflow.com/questions/35544248/how-to-change-canvas-fillstyle-with-collision-detection/35544460");
+        console.log("Solution By Shamar Kellman");
+        console.log("******************************************Thank You****************************************************");
+        var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  var ballRadius = 10;
+  var x = canvas.width/2;
+  var y = canvas.height-30;
+  var dx = 2;
+  var dy = -2;
+  var paddleHeight = 10;
+  var paddleWidth = 75;
+  var paddleX = (canvas.width-paddleWidth)/2;
+  var rightPressed = false;
+  var leftPressed = false;
+
+  document.addEventListener("keydown", keyDownHandler, false);
+  document.addEventListener("keyup", keyUpHandler, false);
+
+  function keyDownHandler(e) {
+      if(e.key == "Right" || e.key == "ArrowRight") {
+          rightPressed = true;
+      }
+      else if(e.key == "Left" || e.key == "ArrowLeft") {
+          leftPressed = true;
+      }
+  }
+
+  function keyUpHandler(e) {
+      if(e.key == "Right" || e.key == "ArrowRight") {
+          rightPressed = false;
+      }
+      else if(e.key == "Left" || e.key == "ArrowLeft") {
+          leftPressed = false;
+      }
+  }
+
+  function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+      ctx.fillStyle = "cyan";
+      ctx.fill();
+      ctx.closePath();
+  }
+  function drawPaddle() {
+      ctx.beginPath();
+      ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+      ctx.fillStyle = "purple";
+      ctx.fill();
+      ctx.closePath();
+  }
+
+  function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+      drawPaddle();
+
+      if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+          dx = -dx;
+      }
+      if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+          dy = -dy;
       }
 
-      
-      addEventListener("resize",function(){
-        canvas.width=innerWidth;
-        canvas.height=innerHeight;
-        init();
-      })
-
-      function Circle() {
-          c.beginPath();
-          c.arc(x, y, ball, 0, Math.PI*2);
-          c.fillStyle = "cyan";
-          c.fill();
-          c.closePath();
-
+      if(rightPressed && paddleX < canvas.width-paddleWidth) {
+          paddleX += 7;
+      }
+      else if(leftPressed && paddleX > 10) {
+          paddleX -= 7;
       }
 
-      function draw() {
+      x += dx;
+      y += dy;
+  }
 
 
-          c.clearRect(0, 0, canvas.width, canvas.height);
-          Circle();
-
-
-          if(x + z > canvas.width-ball || x + z < ball) {
-              z = -z;
-          }
-          if(y + w > canvas.height-ball || y + w < ball) {
-              w = -w;
-          }
-
-          x += z;
-          y += w;
-      }
-//framerate
-        setInterval(draw, 10);
-
+  setInterval(draw, 10);
       </script>
-
+      <hr>
+<center><p><a href="https://stackoverflow.com/questions/35544248/how-to-change-canvas-fillstyle-with-collision-detection/35544460">Source</a><br>
+          <a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls">Source</a></p>
     </body>
 
 </html>
