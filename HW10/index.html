@@ -26,7 +26,7 @@
   var ctx = canvas.getContext("2d");
   var ballRadius = 18;
 
-  var x = canvas.width/10;
+  var x = canvas.width/5;
   var y = canvas.height/10;
   var dx = 3;
   var dy = -3;
@@ -37,8 +37,8 @@
   var leftPressed = false;
   var radius = 15;
   var radiusX = Math.min(canvas.width , radius);
-  var radiusY = Math.min(canvas.height , radius);
-  radius = Math.min(radiusX, radiusY);
+  var radiusY = Math.max(canvas.height , radius);
+  radius = Math.min(radiusX, radiusY, radiusX);
   var color = "cyan";
 
 document.addEventListener("mousemove", mouseMoveHandler, false);
@@ -83,9 +83,9 @@ ctx.beginPath();
 ctx.rect(0, 0, 480, 320);;
 ctx.closePath();
 ctx.fill();
-ctx.fillStyle = color;
+ctx.fillStyle = "white";
 ctx.beginPath();
-ctx.arc(y, y, y, radius, 0, Math.PI*1, false);
+ctx.arc(x,y,x, radius, 0, Math.PI*2, false);
 ctx.closePath();
 ctx.fill();
 ctx.fillStyle = color;
@@ -111,7 +111,7 @@ ctx.fill();
   }
 
   function draw() {
-      ctx.fillStyle = color.background;
+    
       ctx.beginPath();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.closePath();
@@ -120,13 +120,13 @@ ctx.fill();
       drawBall();
       drawPaddle();
 
-      if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+      if(x + dx > canvas.width-ballRadius-radius || x + dx < ballRadius) {
           dx = -dx;
           color = "#" + ((1 << 14) * Math.random(300) | 0).toString(15);
 
   }
 
-      if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+      if(y + dy > canvas.height-ballRadius-radius || y + dy < ballRadius) {
           dy = -dy;
           color = "#" + ((1 << 14) * Math.random(300) | 0).toString(15);
 
