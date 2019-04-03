@@ -26,10 +26,10 @@
   var ctx = canvas.getContext("2d");
   var ballRadius = 18;
 
-  var x = canvas.width/21;
-  var y = canvas.height/30;
-  var dx = 5;
-  var dy = -5;
+  var x = canvas.width/10;
+  var y = canvas.height/10;
+  var dx = 3;
+  var dy = -3;
   var paddleHeight = 10;
   var paddleWidth = 75;
   var paddleX = (canvas.width-paddleWidth)/2;
@@ -78,7 +78,11 @@ ctx.arc(x, y, radius, ballRadius*1, 0, Math.PI*2);
 ctx.closePath();
 ctx.fill();
 
-//the rectangle is half transparent
+ctx.fillStyle = color;
+ctx.beginPath();
+ctx.rect(0, 0, 480, 320);;
+ctx.closePath();
+ctx.fill();
 ctx.fillStyle = color;
 ctx.beginPath();
 ctx.arc(y, y, y, radius, 0, Math.PI*1, false);
@@ -118,13 +122,13 @@ ctx.fillStyle = "color";
 
       if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
           dx = -dx;
-          color = "#" + ((1 << 24) * Math.random() | 0).toString(15);
+          color = "#" + ((1 << 14) * Math.random() | 0).toString(15);
 
   }
 
       if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
           dy = -dy;
-          color = "#" + ((1 << 24) * Math.random() | 0).toString(15);
+          color = "#" + ((1 << 14) * Math.random() | 0).toString(15);
 
       }
 
