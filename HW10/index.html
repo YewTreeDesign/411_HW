@@ -5,7 +5,7 @@
               <link rel="stylesheet" href="css/style.css" text="text/css">
     </head>
     <header>
-<center><h1> Use Arrow Keys to Control Paddle</h1></center>
+<center><h1> Use Mouse to Move Paddle</h1></center>
     </header>
     <body>
 <center>
@@ -16,76 +16,116 @@
         console.log("Paddle + Controls");
         console.log("https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls");
         console.log("___________________________________________________________________");
-        console.log("Change Color of Ball on Colision, or Really for me The Background");
+        console.log("Change Color of Ball on Colision");
         console.log("https://stackoverflow.com/questions/35544248/how-to-change-canvas-fillstyle-with-collision-detection/35544460");
         console.log("Solution By Shamar Kellman");
         console.log("******************************************Thank You****************************************************");
+        console.log("Another Handy Source");
+        console.log("https://www.w3.org/TR/2dcontext/#pixel-manipulation");
         var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
-  var ballRadius = 10;
-  var x = canvas.width/2;
-  var y = canvas.height-30;
-  var dx = 2;
-  var dy = -2;
+  var ballRadius = 18;
+
+  var x = canvas.width/21;
+  var y = canvas.height/30;
+  var dx = 5;
+  var dy = -5;
   var paddleHeight = 10;
   var paddleWidth = 75;
   var paddleX = (canvas.width-paddleWidth)/2;
   var rightPressed = false;
   var leftPressed = false;
 
-  document.addEventListener("keydown", keyDownHandler, false);
-  document.addEventListener("keyup", keyUpHandler, false);
+  var color = "cyan";
 
-  function keyDownHandler(e) {
-      if(e.key == "Right" || e.key == "ArrowRight") {
-          rightPressed = true;
-      }
-      else if(e.key == "Left" || e.key == "ArrowLeft") {
-          leftPressed = true;
-      }
-  }
+document.addEventListener("mousemove", mouseMoveHandler, false);
 
-  function keyUpHandler(e) {
-      if(e.key == "Right" || e.key == "ArrowRight") {
-          rightPressed = false;
-      }
-      else if(e.key == "Left" || e.key == "ArrowLeft") {
-          leftPressed = false;
-      }
+function keyDownHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = true;
+    }
+}
+
+function keyUpHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = false;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+}
+
+function mouseMoveHandler(e) {
+  var relativeX = e.clientX - canvas.offsetLeft;
+  if(relativeX > 0 && relativeX < canvas.width) {
+    paddleX = relativeX - paddleWidth/3;
   }
+}
 
   function drawBall() {
-      ctx.beginPath();
-      ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-      ctx.fillStyle = "cyan";
-      ctx.fill();
-      ctx.closePath();
+
+ctx.fillStyle = color;
+ctx.beginPath();
+ctx.arc(x, y, ballRadius*2, 0, Math.PI*2);
+ctx.closePath();
+ctx.fill();
+
+ctx.fillStyle = "lavender";
+ctx.beginPath();
+ctx.arc(400, y, ballRadius, 0, Math.PI*2);
+ctx.closePath();
+ctx.fill();
+
+//the rectangle is half transparent
+ctx.fillStyle = "lightblue"
+ctx.beginPath();
+ctx.arc(50, y, ballRadius, 0, Math.PI*2);
+ctx.closePath();
+ctx.fill();
   }
   function drawPaddle() {
       ctx.beginPath();
-      ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-      ctx.fillStyle = "purple";
+ctx.fillStyle = "color";
+       ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+
       ctx.fill();
       ctx.closePath();
   }
 
   function draw() {
+      ctx.beginPath();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle="#fff";
+      ctx.fillStyle="#fff";
+      ctx.shadowColor="cyan";
+      ctx.closePath();
+      ctx.fill();
+
       drawBall();
       drawPaddle();
 
       if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
           dx = -dx;
-      }
+          color = "#" + ((1 << 24) * Math.random() | 0).toString(15);
+
+  }
+
       if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
           dy = -dy;
+          color = "#" + ((1 << 24) * Math.random() | 0).toString(15);
+
       }
 
       if(rightPressed && paddleX < canvas.width-paddleWidth) {
           paddleX += 7;
+
       }
-      else if(leftPressed && paddleX > 10) {
+      else if(leftPressed && paddleX > 15) {
           paddleX -= 7;
+
       }
 
       x += dx;
@@ -93,7 +133,7 @@
   }
 
 
-  setInterval(draw, 10);
+  setInterval(draw, 15);
       </script>
       <hr>
 <center><p><a href="https://stackoverflow.com/questions/35544248/how-to-change-canvas-fillstyle-with-collision-detection/35544460">Source</a><br>
