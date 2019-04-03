@@ -103,7 +103,7 @@ ctx.fill();
   }
   function drawPaddle() {
       ctx.beginPath();
-ctx.fillStyle = "color";
+       ctx.fillStyle = "color";
        ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
 
       ctx.fill();
@@ -122,13 +122,13 @@ ctx.fillStyle = "color";
 
       if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
           dx = -dx;
-          color = "#" + ((1 << 14) * Math.random() | 0).toString(15);
+          color = "#" + ((1 << 14) * Math.random(300) | 0).toString(15);
 
   }
 
       if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
           dy = -dy;
-          color = "#" + ((1 << 14) * Math.random() | 0).toString(15);
+          color = "#" + ((1 << 14) * Math.random(300) | 0).toString(15);
 
       }
 
