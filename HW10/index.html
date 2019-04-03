@@ -35,7 +35,10 @@
   var paddleX = (canvas.width-paddleWidth)/2;
   var rightPressed = false;
   var leftPressed = false;
-
+  var radius = 15;
+  var radiusX = Math.min(canvas.width , radius);
+  var radiusY = Math.min(canvas.height , radius);
+  radius = Math.min(radiusX, radiusY);
   var color = "cyan";
 
 document.addEventListener("mousemove", mouseMoveHandler, false);
@@ -67,24 +70,32 @@ function mouseMoveHandler(e) {
 
   function drawBall() {
 
+
+
+ctx.fillStyle = "cyan";
+ctx.beginPath();
+ctx.arc(x, y, radius, ballRadius*1, 0, Math.PI*2);
+ctx.closePath();
+ctx.fill();
+
+//the rectangle is half transparent
 ctx.fillStyle = color;
+ctx.beginPath();
+ctx.arc(y, y, y, radius, 0, Math.PI*1, false);
+ctx.closePath();
+ctx.fill();
+ctx.fillStyle = color;
+ctx.beginPath();
+ctx.arc(x, y, ballRadius*3, 0, Math.PI*2);
+ctx.closePath();
+ctx.fill();
+ctx.fillStyle="purple";
 ctx.beginPath();
 ctx.arc(x, y, ballRadius*2, 0, Math.PI*2);
 ctx.closePath();
 ctx.fill();
 
-ctx.fillStyle = "lavender";
-ctx.beginPath();
-ctx.arc(400, y, ballRadius, 0, Math.PI*2);
-ctx.closePath();
-ctx.fill();
 
-//the rectangle is half transparent
-ctx.fillStyle = "lightblue"
-ctx.beginPath();
-ctx.arc(50, y, ballRadius, 0, Math.PI*2);
-ctx.closePath();
-ctx.fill();
   }
   function drawPaddle() {
       ctx.beginPath();
@@ -96,11 +107,9 @@ ctx.fillStyle = "color";
   }
 
   function draw() {
+      ctx.fillStyle = color.background;
       ctx.beginPath();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle="#fff";
-      ctx.fillStyle="#fff";
-      ctx.shadowColor="cyan";
       ctx.closePath();
       ctx.fill();
 

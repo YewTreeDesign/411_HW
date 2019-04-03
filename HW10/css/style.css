@@ -13,10 +13,11 @@ body {
   width: auto;
   font-family: 'Open Sans', sans-serif;
   margin: auto;
-}
-canvas{
-  background-color: salmon;
-}
+  }
+  canvas {
+      border: 1px solid white;
+      background-color: magenta;
+  }
 a{
   color:white;
 }
