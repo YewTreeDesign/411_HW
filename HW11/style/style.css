@@ -1,6 +1,3 @@
-canvas {
-  border: 1px solid black;
-}
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800');
 
 
@@ -15,4 +12,12 @@ body {
   width: auto;
   font-family: 'Open Sans', sans-serif;
   margin: auto;
+  }
+
+canvas {
+  border: 1px solid black;
+  }
+  #myCanvas{
+    color: #0cff15;
+    background-image: url("image/bg.png");
   }
