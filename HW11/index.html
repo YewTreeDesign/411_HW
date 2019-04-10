@@ -8,9 +8,10 @@
 
     <header>
 
-<center><h1>Null<br>Move with WASD, interact with Space.</h1></center>
+<center><h1>Null</h1></center>
     </header>
     <body>
+      <center><p>Move with <b> Arrow Keys</b> and interact with <b>Space.</b></p></center>
 <center>
         <canvas id="myCanvas" width="480" height="320"></canvas>
 </center>
@@ -38,6 +39,7 @@ let frameCount = 0;
 let positionX = 0;
 let positionY = 0;
 let img = new Image();
+
 
 window.addEventListener('keydown', keyDownListener);
 function keyDownListener(event) {
@@ -69,18 +71,18 @@ function gameLoop() {
 
   let hasMoved = false;
 
-  if (keyPresses.w) {
+  if (keyPresses.ArrowUp) {
     moveCharacter(0, -MOVEMENT_SPEED, FACING_UP);
     hasMoved = true;
-  } else if (keyPresses.s) {
+  } else if (keyPresses.ArrowDown) {
     moveCharacter(0, MOVEMENT_SPEED, FACING_DOWN);
     hasMoved = true;
   }
 
-  if (keyPresses.a) {
+  if (keyPresses.ArrowLeft) {
     moveCharacter(-MOVEMENT_SPEED, 0, FACING_LEFT);
     hasMoved = true;
-  } else if (keyPresses.d) {
+  } else if (keyPresses.ArrowRight) {
     moveCharacter(MOVEMENT_SPEED, 0, FACING_RIGHT);
     hasMoved = true;
   }
