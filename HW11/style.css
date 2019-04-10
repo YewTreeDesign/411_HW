@@ -16,8 +16,6 @@ body {
 
 canvas {
   border: 1px solid black;
-  }
-  #myCanvas{
-    color: #0cff15;
-    background-image: url("image/bg.png");
+  background-color: white;
+  background-image: url('image/bg.png');
   }

@@ -2,7 +2,7 @@
     <head>
         <title>HW 11 JSON</title>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-              <link rel="stylesheet" href="style/style.css" text="text/css">
+              <link rel="stylesheet" href="style.css" text="text/css">
 
     </head>
 
@@ -17,7 +17,6 @@
 </center>
 </body>
 <script>
-var wall;
 const SCALE = 1;
 const WIDTH = 18;
 const HEIGHT = 31;
@@ -40,6 +39,9 @@ let frameCount = 0;
 let positionX = 0;
 let positionY = 0;
 let img = new Image();
+let shiba = new Image();
+let rays = new Image();
+let doritos = new Image();
 
 
 window.addEventListener('keydown', keyDownListener);
@@ -54,16 +56,25 @@ function keyUpListener(event) {
 
 function loadImage() {
   img.src = 'atlus/mainsprite.png';
+  shiba.src = 'image/shiba.gif';
+  rays.src='image/shades.png';
+  doritos.src='image/dorit.png';
   img.onload = function() {
     window.requestAnimationFrame(gameLoop);
+
   };
+
 }
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(img,
                 frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
                 canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
+  ctx.drawImage(shiba, 225,20);
+  ctx.drawImage(rays, 400,20);
+  ctx.drawImage(doritos, 420,250);
 }
+
 
 loadImage();
 
@@ -116,5 +127,6 @@ function moveCharacter(deltaX, deltaY, direction) {
   }
   currentDirection = direction;
 }
+
 </script>
 </html>
