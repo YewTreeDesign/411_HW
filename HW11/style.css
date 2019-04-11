@@ -19,3 +19,6 @@ canvas {
   background-color: white;
   background-image: url('image/bg.png');
   }
+  #rect{
+    border: 1px solid black;
+  }

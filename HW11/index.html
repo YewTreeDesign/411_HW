@@ -42,6 +42,8 @@ let img = new Image();
 let shiba = new Image();
 let rays = new Image();
 let doritos = new Image();
+let walls= new Image();
+
 
 
 window.addEventListener('keydown', keyDownListener);
@@ -55,6 +57,7 @@ function keyUpListener(event) {
 }
 
 function loadImage() {
+  walls.src='image/walls.png'
   img.src = 'atlus/mainsprite.png';
   shiba.src = 'image/shiba.gif';
   rays.src='image/shades.png';
@@ -67,12 +70,40 @@ function loadImage() {
 }
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
+  ctx.beginPath();
+  ctx.drawImage(shiba, 225,20);
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.drawImage(rays, 400,20);
+  ctx.drawImage(doritos, 420,250);
   ctx.drawImage(img,
                 frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
                 canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
-  ctx.drawImage(shiba, 225,20);
-  ctx.drawImage(rays, 400,20);
-  ctx.drawImage(doritos, 420,250);
+  ctx.drawImage(walls,0,0);
+  ctx.closePath();
+}
+function drawWalls(width, height, x, y){
+  this.x = x;
+ this.y = y;
+  ctx.beginPath();
+  ctx.rect(105.3, -1, 14.1, 73.5);
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.rect(366.5, -1, 14.1, 73.5);
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.rect(367, 173.2, 120, 14.1);
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.rect(-1, 173.2, 120, 14.1);
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.rect(105.3, 267.5, 14.1, 73.5);
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.rect(366.5, 267.5, 14.1, 73.5);
+  ctx.closePath();
 }
 
 
