@@ -29,7 +29,6 @@ const FACING_LEFT = 2;
 const FACING_RIGHT = 3;
 const FRAME_LIMIT = 12;
 const MOVEMENT_SPEED = 1;
-
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 let keyPresses = {};
@@ -42,20 +41,29 @@ let img = new Image();
 let shiba = new Image();
 let rays = new Image();
 let doritos = new Image();
+let walls=     [{"id": "wall1", "x": 105.3, "y": -1,    "width": 14.1, "height": 73.5},
+                {"id": "wall2", "x": 366.5, "y": -1,    "width": 14.1, "height": 73.5},
+                {"id": "wall3", "x": 367,   "y": 173.2, "width": 120,  "height": 14.1},
+                {"id": "wall4", "x": -1,    "y": 173.2, "width": 120,  "height": 14.1},
+                {"id": "wall5", "x": 105.3, "y": 267.5, "width": 14.1, "height": 73.5},
+                {"id": "wall6", "x": 366.5, "y": 267.5, "width": 14.1, "height": 73.5}
+              ];
+              function drawWalls(){
+                for(var i=0; i< walls.length; i++){
+                  ctx.fillStyle="white";
+                  ctx.fillRect(walls[i].x, walls[i].y, walls[i].width,walls[i].height);
+                }
 
 
-
-
+            }
 window.addEventListener('keydown', keyDownListener);
 function keyDownListener(event) {
     keyPresses[event.key] = true;
 }
-
 window.addEventListener('keyup', keyUpListener);
 function keyUpListener(event) {
     keyPresses[event.key] = false;
 }
-
 function loadImage() {
     img.src = 'atlus/mainsprite.png';
   shiba.src = 'image/shiba.gif';
@@ -63,16 +71,12 @@ function loadImage() {
   doritos.src='image/dorit.png';
   img.onload = function() {
     window.requestAnimationFrame(gameLoop);
-
   };
-
 }
-
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.beginPath();
   ctx.drawImage(shiba, 225,20);
   ctx.closePath();
-
   ctx.beginPath();
   ctx.drawImage(rays, 400,20);
   ctx.drawImage(doritos, 420,250);
@@ -80,27 +84,14 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
                 frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
                 canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
   ctx.closePath();
-
-  ctx.beginPath();
-  ctx.rect(105.3, -1, 14.1, 73.5);
-  ctx.rect(366.5, -1, 14.1, 73.5);
-  ctx.rect(367, 173.2, 120, 14.1);
-  ctx.rect(-1, 173.2, 120, 14.1);
-  ctx.rect(105.3, 267.5, 14.1, 73.5);
-  ctx.rect(366.5, 267.5, 14.1, 73.5);
-  ctx.fillStyle = "white";
-  ctx.fill();
-  ctx.stroke();
-  ctx.closePath();
 }
 
 loadImage();
-
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawWalls();
 
   let hasMoved = false;
-
   if (keyPresses.ArrowUp) {
     moveCharacter(0, -MOVEMENT_SPEED, FACING_UP);
     hasMoved = true;
@@ -108,7 +99,6 @@ function gameLoop() {
     moveCharacter(0, MOVEMENT_SPEED, FACING_DOWN);
     hasMoved = true;
   }
-
   if (keyPresses.ArrowLeft) {
     moveCharacter(-MOVEMENT_SPEED, 0, FACING_LEFT);
     hasMoved = true;
@@ -116,7 +106,6 @@ function gameLoop() {
     moveCharacter(MOVEMENT_SPEED, 0, FACING_RIGHT);
     hasMoved = true;
   }
-
   if (hasMoved) {
     frameCount++;
     if (frameCount >= FRAME_LIMIT) {
@@ -127,16 +116,22 @@ function gameLoop() {
       }
     }
   }
-
   if (!hasMoved) {
     currentLoopIndex = 0;
   }
-
   drawFrame(CYCLE_LOOP[currentLoopIndex], currentDirection, positionX, positionY);
   window.requestAnimationFrame(gameLoop);
 }
-
 function moveCharacter(deltaX, deltaY, direction) {
+  walls.forEach(walls=>{
+  if( positionX + deltaX + SCALED_WIDTH > walls.x
+    && positionX + deltaX < walls.x+walls.width
+    && positionY + deltaY + SCALED_HEIGHT > walls.y
+    && positionY + deltaY < walls.y+walls.height
+  ){
+    collidingWith(walls);
+  }
+})
   if (positionX + deltaX > 0 && positionX  + SCALED_WIDTH + deltaX < canvas.width) {
     positionX += deltaX;
   }
@@ -145,6 +140,5 @@ function moveCharacter(deltaX, deltaY, direction) {
   }
   currentDirection = direction;
 }
-
 </script>
 </html>
