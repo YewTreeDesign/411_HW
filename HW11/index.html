@@ -56,6 +56,7 @@ let walls=     [{"id": "wall1", "x": 105.3, "y": -1,    "width": 14.1, "height":
             }
             function collidingWith(walls){
               console.log("you are colliding with:", walls.id);
+
 }
 window.addEventListener('keydown', keyDownListener);
 function keyDownListener(event) {
@@ -125,20 +126,15 @@ function gameLoop() {
 }
 function moveCharacter(deltaX, deltaY, direction) {
   walls.forEach(walls=>{
-  if( positionX + deltaX + SCALED_WIDTH > walls.x
-    && positionX + deltaX < walls.x+walls.width
-    && positionY + deltaY + SCALED_HEIGHT > walls.y
-    && positionY + deltaY < walls.y+walls.height
+  if( positionX + deltaX + SCALED_WIDTH > walls.x && positionX + deltaX < walls.x + walls.width
+    && positionY + deltaY + SCALED_HEIGHT > walls.y && positionY + deltaY < walls.y +walls.height
   ){
     collidingWith(walls);
   }
 })
-  if (positionX + deltaX > 0 && positionX  + SCALED_WIDTH + deltaX < canvas.width) {
-    positionX += deltaX;
-  }
-  if (positionY + deltaY > 0 && positionY + SCALED_HEIGHT + deltaY < canvas.height) {
-    positionY += deltaY;
-  }
+
+if (positionX + deltaX > 0 && positionX + SCALED_WIDTH + deltaX < canvas.width) {positionX += deltaX;}
+if (positionY + deltaY > 0 && positionY + SCALED_HEIGHT + deltaY < canvas.height) {positionY += deltaY;}
   currentDirection = direction;
 }
 </script>
