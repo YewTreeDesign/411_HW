@@ -145,15 +145,6 @@ function moveCharacter(deltaX, deltaY, direction) {
   }
   currentDirection = direction;
 }
-wallsArr.forEach(wall=>{
-  if( positionX + deltaX + SCALED_WIDTH > wall.x
-    && positionX + deltaX < wall.x+wall.width
-    && positionY + deltaY + SCALED_HEIGHT > wall.y
-    && positionY + deltaY < wall.y+wall.height
-  ){
-    collidingWith(wall);
-  }
-})
 
 </script>
 </html>
