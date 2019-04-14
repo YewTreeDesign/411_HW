@@ -126,13 +126,14 @@ let walls=     [];
 
                 }
             }
+
             function collidingWith(walls){
               console.log("you are colliding with:", walls.id);
-              if(FACING_LEFT ==true) { positionX = positionX -1}else if
-              (FACING_RIGHT ==true) {positionY = positionY -1} else if
-              (FACING_UP ==true) {positionY = positionX -2}else if
-              (FACING_DOWN ==true){postionY = positionX -2}
-
+              if      (FACING_LEFT == true) {positionX = positionX}
+              else if (FACING_RIGHT == true) {positionY = positionY}
+              else if (FACING_UP == true) {positionY = positionX}
+              else if (FACING_DOWN == true) {postionY = positionX}
+              console.log(positionX, positionY)
               snd.play();
             }
 
@@ -153,11 +154,6 @@ function loadImage() {
 }
 function drawShiba(){
     ctx.drawImage(shiba, 225, 20);
-    ctx.fillRect(shiba.x, shiba.y, shiba.width,shiba.height);
-    ctx.stroke();
-    if (shiba.x < shiba.width - 18) shiba.x++;
-    if (shiba.y < shiba.height - 31) shiba.y++;
-
 }
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.beginPath();
@@ -171,9 +167,11 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
 loadImage();
 
 function gameLoop() {
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawWalls();
   drawShiba();
+
   let hasMoved = false;
   if (keyPresses.ArrowUp) {
     moveCharacter(0, -MOVEMENT_SPEED, FACING_UP,0);
