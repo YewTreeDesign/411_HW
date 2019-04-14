@@ -15,6 +15,10 @@
 <center>
         <canvas id="myCanvas" width="480" height="320"></canvas>
 </center>
+<h4><center> Helpful Sources, This was a huge order to work with<br>
+        <a href="https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg"> Moving a Sprite Sheet with javascript by Martyhimmel </a><br>
+        <a href="https://stackoverflow.com/questions/55625639/adding-collision-to-rectangles-so-sprite-wont-go-through"> Ellertsmari's suggestion for getting my sprite to read collision detection from the shapes</a>
+      </center></h4>
 </body>
 <script>
 
@@ -41,30 +45,60 @@ let currentLoopIndex = 0;
 let frameCount = 0;
 let positionX = 0;
 let positionY = 0;
+
+collect= [];collect.push({
+            id: "collect1",
+            img: 'image/shiba.gif',
+            x: 225,
+            y: 20,
+            width:25,
+            height:16
+            });
+            collect.push({
+              id: "collect2",
+              img: 'image/shades.png',
+              x: 50,
+              y: 250,
+              width:52,
+              height:16
+            });
+            collect.push({
+              id: "collect3",
+              img: 'image/dorit.png',
+              x: 300,
+              y: 150,
+              width:32,
+              height:43
+            });
+            function drawCollect(image, fill, stroke){
+              for(var i = 0; i < collect.length; i++) {
+                ctx.fillRect(collect[i].x, collect[i].y, collect[i].width,collect[i].height);
+                ctx.rect(collect.x, collect.y, collect.width, collect.height);
+                if (collect.x < collect.width - 18) x++;
+                if (collect.y < collect.height - 31) y++;
+
+            }
+
+          function collidingWith(collect){
+            console.log("you are colliding with:", collect.id);
+            if      (FACING_LEFT <= 0) {positionX = positionX}
+            else if (FACING_RIGHT <= true) {positionY = positionY}
+            else if (FACING_UP <= true) {positionY = positionX}
+            else if (FACING_DOWN <= true) {postionY = positionX}
+
+            console.log(positionX, positionY)
+            snd.play();
+
+          }
+        }
+
 let img = new Image();
 let shiba = new Image();
-var collectArray = [{
-  'name': 'rays',
-  'type': 'image',
-  'x': 420,
-  'y': 250
-}, {
-  'name': 'doritos',
-  'img': 'dorit.png',
-  'x': 400,
-  'y':20
-}];
-let collobj= ["image/dorit.png","image/rays.png"];
-let uncollobj=[{}];
+let doritos = new Image();
+let shades= new Image();
+
 var defaultFill = "white";
 var defaultStroke = "cyan";
-var collect = function collect() {
-  nav.innerHTML = 'SCORE : ' + score++;
-  var selected = document.querySelectorAll('.selected');
-  selected.forEach(function (collectable) {
-    card.classList.add('collect');
-  });
-};
 var count = 0;
 var score = 1;
 var snd = new Audio("sound/bump.mp3");
@@ -120,13 +154,13 @@ let walls=     [];
                   ctx.fill();
                   ctx.strokeStyle = stroke || defaultStroke;
                   ctx.stroke();
+
                   if (walls.x < walls.width - 18) x++;
                   if (walls.y < walls.height - 31) y++;
 
 
                 }
             }
-
             function collidingWith(walls){
               console.log("you are colliding with:", walls.id);
               if      (FACING_LEFT == true) {positionX = positionX}
@@ -147,16 +181,14 @@ function keyUpListener(event) {
 }
 function loadImage() {
   img.src = 'atlus/mainsprite.png';
-  shiba.src = 'image/shiba.gif';
+
   img.onload = function() {
     window.requestAnimationFrame(gameLoop);
   };
 }
-function drawShiba(){
-    ctx.drawImage(shiba, 225, 20);
-}
+
 function drawFrame(frameX, frameY, canvasX, canvasY) {
-  ctx.beginPath();
+  ctx.beginPath(collect);
 
   ctx.drawImage(img,
                 frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
@@ -170,8 +202,7 @@ function gameLoop() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawWalls();
-  drawShiba();
-
+  drawCollect();
   let hasMoved = false;
   if (keyPresses.ArrowUp) {
     moveCharacter(0, -MOVEMENT_SPEED, FACING_UP,0);
@@ -224,7 +255,16 @@ if (positionY + deltaY > 0 && positionY + SCALED_HEIGHT + deltaY <walls.height) 
   }
 
   })
+  collect.forEach(collect=>{
+  if(positionX  + SCALED_WIDTH + deltaX > collect.x && positionX + deltaX < collect.x + collect.width)
+  if(positionY + SCALED_HEIGHT + deltaY > collect.y && positionY + deltaY < collect.y + collect.height)
+     {
+    collidingWith(collect);
 
+
+  }
+
+  })
 }
 
 
