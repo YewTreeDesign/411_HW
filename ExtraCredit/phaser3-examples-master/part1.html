@@ -127,8 +127,8 @@
         //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
         stars = this.physics.add.group({
             key: 'star',
-            repeat: 11,
-            setXY: { x: 12, y: 300, stepX: 70 }
+
+            setXY: { x: 42, y: 300, stepX: 70 }
         });
 
         stars.children.iterate(function (child) {
@@ -198,7 +198,7 @@
         {
           level += 1;
           levelText.setText('Level: ' + level);
-          if (stars.countActive(true) === 1);
+          if (stars.countActive(true) === 0);
             stars.children.iterate(function (child) {
 
                 child.enableBody(true, child.x, 0, true, true);
